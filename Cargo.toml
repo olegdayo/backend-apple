@@ -1,0 +1,11 @@
+[package]
+name = "backend-apple"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.6"
+ffmpeg-next="7.1.0"
+image = "0.25.8"
+serde = { version = "1.0.228", features = ["derive"] }
+tokio = { version =  "1.48", features = ["rt-multi-thread", "macros"] }

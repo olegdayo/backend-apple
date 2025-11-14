@@ -1,0 +1,3 @@
+target
+data/frames/*.png
+.DS_Store
