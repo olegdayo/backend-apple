@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build
+      run: cargo build --release
+
+    - name: Test
+      run: cargo test --verbose --verbose
+
+    - name: Check Format
+      run: cargo fmt --all -- --check
+
+    - name: Check Warnings
+      run: cargo clippy -- -D warnings
